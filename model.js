@@ -13,7 +13,7 @@ async function getAllData() {
 async function getDataById(id) {
   const record = await prisma.users.findUnique({
     where: {
-      id: Number(id)
+      id : Number(id)
     }
   });
   return record;
@@ -24,7 +24,6 @@ async function getDataById(id) {
 async function createData(data) {
   const record = await prisma.users.create({
     data: {
-      id: data.id,
       name: data.name,
       phone: data.phone
     }
@@ -34,13 +33,13 @@ async function createData(data) {
 
 // updateData(id, data): Actualiza un registro existente en
 // la tabla "users" utilizando el método upsert() de Prisma.
-async function updateData(id, data) {
+async function updateData(id, user) {
   const record = await prisma.users.update({
     where: {
       id: Number(id)
     },
     data: {
-      ...data
+      ...user
     }
   });
   return record;

@@ -63,8 +63,8 @@ async function handleCreateData(req, res) {
 
 async function handleUpdateData(req, res) {
   const { id } = req.params;
-  const data = req.body;
-  const record = await updateData(id, data);
+  const user = req.body;
+  const record = await updateData(id, user);
   if (!record) {
     return res.status(404).json({
       message: "Not Found",
